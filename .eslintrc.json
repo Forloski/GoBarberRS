@@ -1,13 +1,18 @@
 {
     "env": {
         "es2021": true,
-        "node": true
+        "node": true,
+        "jest": true
     },
     "extends": [
         "airbnb-base",
         "plugin:@typescript-eslint/recommended",
         "prettier/@typescript-eslint",
-        "plugin:prettier/recommended"
+        "plugin:prettier/recommended",
+        "eslint:recommended",
+        "plugin:import/errors",
+        "plugin:import/warnings",
+        "plugin:import/typescript"
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
@@ -16,9 +21,12 @@
     },
     "plugins": [
         "@typescript-eslint",
-        "prettier"
+        "prettier",
+        "import"
     ],
     "rules": {
+        "no-useless-constructor": "off",
+        "import/no-unresolved": "error",
         "import/extensions": [
             "error",
             "ignorePackages",
@@ -32,11 +40,23 @@
         "@typescript-eslint/camelcase": "off",
         "@typescript-eslint/no-unused-vars": ["error", {
           "argsIgnorePattern": "_"
-        }]
+        }],
+        "@typescript-eslint/naming-convention": [
+          "error",
+          {
+            "selector": "interface",
+            "prefix": ["I"],
+            "format": ["PascalCase"]
+          }
+        ]
     },
     "settings": {
         "import/resolver": {
-          "typescript": {}
+          "typescript": {"alwaysTryTypes": true}
+        },
+        "import/parsers": {
+          "@typescript-eslint/parser": [".ts", ".tsx"],
+          "project": ["./tsconfig.json"]
         }
     }
 }
