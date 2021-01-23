@@ -72,3 +72,10 @@
 - O usuário não pode agendar serviçoes consigo mesmo;
 
 
+
+# Fazer
+
+  1. Rotas e Controllers
+  2. Repositório de tokens(TypeORM)
+  3. Provider de envio de e-mail (dev)
+  4. Testar tudo!

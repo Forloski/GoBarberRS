@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5",
+    "noImplicitAny": false,
     "module": "commonjs",
     "outDir": "./dist",
     "rootDir": "./",
@@ -8,6 +9,10 @@
     "strict": true,
     "strictPropertyInitialization": false,
     "baseUrl": "./src",
+    "types": [
+      "reflect-metadata",
+      "node"
+    ],
     "paths": {
       "@modules/*": ["modules/*"],
       "@config/*": ["config/*"],
