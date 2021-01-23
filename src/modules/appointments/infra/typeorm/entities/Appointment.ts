@@ -1,5 +1,3 @@
-import 'reflect-metadata';
-
 /* eslint-disable camelcase */
 import {
   Entity,
