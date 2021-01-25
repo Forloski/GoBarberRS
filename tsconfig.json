@@ -12,7 +12,8 @@
     "allowJs": true,
     "types": [
       "reflect-metadata",
-      "node"
+      "node",
+      "jest"
     ],
     "paths": {
       "@modules/*": ["modules/*"],
