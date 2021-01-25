@@ -9,7 +9,7 @@ import IAppointmentsRepository from '@modules/appointments/repositories/iAppoint
 import Appointment from '../infra/typeorm/entities/Appointment';
 
 interface IRequestDTO {
-  provider_id: string;
+  providerId: string;
   date: Date;
 }
 
@@ -21,7 +21,7 @@ class CreateAppointmentService {
   ) {}
 
   public async execute({
-    provider_id,
+    providerId,
     date,
   }: IRequestDTO): Promise<Appointment> {
     const appointmentDate = startOfHour(date);
@@ -35,7 +35,7 @@ class CreateAppointmentService {
     }
 
     const appointment = await this.appointmentsRepository.create({
-      provider_id,
+      providerId,
       date: appointmentDate,
     });
 

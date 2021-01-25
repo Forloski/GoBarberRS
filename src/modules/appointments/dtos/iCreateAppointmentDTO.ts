@@ -1,5 +1,5 @@
 export default interface ICreateAppointmentDTO {
   // eslint-disable-next-line camelcase
-  provider_id: string;
+  providerId: string;
   date: Date;
 }

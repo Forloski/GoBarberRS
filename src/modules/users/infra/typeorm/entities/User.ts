@@ -29,6 +29,11 @@ class User {
 
   @UpdateDateColumn()
   updated_at: Date;
+
+  toJSON(): User {
+    this.password = '**********';
+    return this;
+  }
 }
 
 export default User;

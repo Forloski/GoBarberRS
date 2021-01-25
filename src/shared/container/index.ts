@@ -4,7 +4,7 @@ import '@modules/users/providers';
 import './providers';
 
 import IAppointmentsRepository from '@modules/appointments/repositories/iAppointmentsRepository';
-import AppointmentsRepository from '@modules/appointments/infra/typeorm/repositories/AppointmentsRepo';
+import AppointmentsRepository from '@modules/appointments/infra/typeorm/repositories/AppointmentsRepository';
 
 import IUserTokensRepository from '@modules/users/repositories/IUserTokensRepository';
 import UserTokensRepository from '@modules/users/infra/typeorm/repositories/UserTokensRepository';
