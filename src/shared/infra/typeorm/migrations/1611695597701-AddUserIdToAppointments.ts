@@ -1,5 +1,3 @@
-/* eslint-disable camelcase */
-/* eslint-disable class-methods-use-this */
 import {
   MigrationInterface,
   QueryRunner,
@@ -7,14 +5,13 @@ import {
   TableForeignKey,
 } from 'typeorm';
 
-export default class ChangeProviderFieldToProviderId1607040062784
+export default class AddUserIdToAppointments1611695597701
   implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropColumn('appointments', 'provider');
     await queryRunner.addColumn(
       'appointments',
       new TableColumn({
-        name: 'providerId',
+        name: 'userId',
         type: 'uuid',
         isNullable: true,
       }),
@@ -23,8 +20,8 @@ export default class ChangeProviderFieldToProviderId1607040062784
     await queryRunner.createForeignKey(
       'appointments',
       new TableForeignKey({
-        name: 'AppointmentProvider',
-        columnNames: ['providerId'],
+        name: 'AppointmentUser',
+        columnNames: ['userId'],
         referencedColumnNames: ['id'],
         referencedTableName: 'users',
         onDelete: 'SET NULL',
@@ -34,16 +31,8 @@ export default class ChangeProviderFieldToProviderId1607040062784
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropForeignKey('appointments', 'AppointmentProvider');
+    await queryRunner.dropForeignKey('appointments', 'AppointmentUser');
 
-    await queryRunner.dropColumn('appointments', 'providerId');
-
-    await queryRunner.dropColumn(
-      'appointments',
-      new TableColumn({
-        name: 'provider',
-        type: 'varchar',
-      }),
-    );
+    await queryRunner.dropColumn('appointments', 'userId');
   }
 }

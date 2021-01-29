@@ -50,8 +50,8 @@
     "test": "jest",
     "build": "tsc",
     "devServer": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only src/shared/infra/http/server.ts",
-    "typeorm": "ts-node-dev -r tsconfig-paths/register --require ts-node/register ./node_modules/typeorm/cli.js",
-    "typeorm2": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli.js"
+    "typeorm2": "ts-node-dev -r tsconfig-paths/register --require ts-node/register ./node_modules/typeorm/cli.js",
+    "typeorm": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli.js"
   },
   "author": "",
   "license": "ISC"
