@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 import { Request, Response } from 'express';
 import { parseISO } from 'date-fns';
 import { container } from 'tsyringe';
@@ -9,10 +8,6 @@ export default class AppointmentController {
   public async create(request: Request, response: Response): Promise<Response> {
     const userId = request.user.id;
     const { providerId, date } = request.body;
-
-    console.log(userId);
-    console.log(providerId);
-    console.log(date);
 
     const parsedDate = parseISO(date);
 
