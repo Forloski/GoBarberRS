@@ -1,7 +1,8 @@
-// src/server.ts
 import 'reflect-metadata';
+import 'dotenv/config';
 
 import express, { Request, Response, NextFunction } from 'express';
+import { errors } from 'celebrate';
 import cors from 'cors';
 import 'express-async-errors';
 import uploadConfig from '@config/upload';
@@ -17,6 +18,8 @@ app.use(cors());
 app.use(express.json());
 app.use('/files', express.static(uploadConfig.uploadsFolder));
 app.use(routes);
+
+app.use(errors());
 
 app.use(
   // eslint-disable-next-line no-unused-vars

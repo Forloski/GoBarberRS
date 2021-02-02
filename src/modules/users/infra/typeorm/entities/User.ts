@@ -1,4 +1,6 @@
 /* eslint-disable camelcase */
+import { Exclude, Expose } from 'class-transformer';
+
 import {
   Entity,
   Column,
@@ -22,6 +24,7 @@ class User {
   avatar: string;
 
   @Column()
+  @Exclude()
   password: string;
 
   @CreateDateColumn()
@@ -30,9 +33,11 @@ class User {
   @UpdateDateColumn()
   updated_at: Date;
 
-  toJSON(): User {
-    this.password = '**********';
-    return this;
+  @Expose()
+  get avatar_url(): string | null {
+    return this.avatar
+      ? `${process.env.APP_API_URL}/files/${this.avatar}`
+      : null;
   }
 }
 
